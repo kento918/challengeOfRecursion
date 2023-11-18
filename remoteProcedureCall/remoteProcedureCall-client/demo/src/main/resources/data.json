@@ -1,0 +1,6 @@
+{
+   "method": "sort",
+   "params": ["abvc","jdksl","dsaf"], 
+   "param_types": ["String","String","String"],
+   "id": 1
+}
