@@ -1,0 +1,28 @@
+"""
+
+chatRoomMap<String , chatRoom>
+chatRoom(String name , int maxNum , HashMap<String, chatClient> clientList)
+[String name , int maxNum , int id , HashMap clientList , String uniquName]
+chatClient(String name , String ip ,String port)
+[String name , String ip , String port , String clientName]
+
+全体の流れ
+server - TCPでクライアントからの接続を待つ、chatRoomMap<String name+hostclientKey, chatRoom>のマップの作製　
+client - TCPで接続、名前の入力
+server - 名前、IP、ポートでchatClientを作成(String name, String clientKey)
+         ルームを作成するか、ルームに接続するかを送る
+client - (ルーム作成) chatRoom(String name, int maxNum , HashMap<String , chatClient>)の追加、ホストとしてUDP
+　　　　（ルームへ参加）ルーム名からゲストとしてUDP
+
+UDP
+client - メッセージを送る
+server - メッセージを受信、ルーム内のメンバーに送る
+
+UDP切断、HashMapから削除、TCP切断
+
+
+"""
+port = 55535
+ip = '0.0.0.0'
+
+# with socket.socket(socket.AF_INET , socket.SOCK_DGRAM) as s:
